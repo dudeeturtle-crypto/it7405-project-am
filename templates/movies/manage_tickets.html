@@ -1,0 +1,130 @@
+{% extends 'base.html' %}
+
+{% block title %}Manage Support Tickets - Admin{% endblock %}
+
+{% block content %}
+<div class="mt-6">
+  <h1 class="text-3xl font-bold mb-2">Support Tickets</h1>
+  <p class="text-slate-600 mb-6">Review and respond to user support requests.</p>
+
+  <!-- Filter by Status -->
+  <div class="mb-6 flex gap-2 flex-wrap">
+    {% for status in statuses %}
+      <a href="?status={{ status }}" class="px-4 py-2 rounded text-sm font-medium {% if status_filter == status %}bg-indigo-600 text-white{% else %}bg-gray-200 text-gray-800 hover:bg-gray-300{% endif %}">
+        {{ status|upper }}
+      </a>
+    {% endfor %}
+  </div>
+
+  <!-- Tickets List -->
+  {% if page_obj.paginator.count > 0 %}
+    <div class="space-y-4">
+      {% for ticket in page_obj %}
+        <div class="bg-white border rounded p-6">
+          <div class="flex items-start justify-between mb-4">
+            <div>
+              <h2 class="text-xl font-semibold text-slate-900">{{ ticket.subject }}</h2>
+              <p class="text-sm text-slate-600 mt-1">
+                From: <strong>{{ ticket.username }}</strong> ({{ ticket.email }})
+              </p>
+              <p class="text-xs text-slate-500">Submitted: {{ ticket.created_at|date:"M d, Y H:i" }}</p>
+            </div>
+            <span class="px-3 py-1 rounded text-sm font-medium {% if ticket.status == 'open' %}bg-yellow-100 text-yellow-800{% elif ticket.status == 'in_progress' %}bg-blue-100 text-blue-800{% elif ticket.status == 'resolved' %}bg-green-100 text-green-800{% else %}bg-gray-100 text-gray-800{% endif %}">
+              {{ ticket.status|upper }}
+            </span>
+          </div>
+
+          <!-- User Message -->
+          <div class="bg-slate-50 rounded p-4 mb-4 border-l-4 border-indigo-500">
+            <p class="text-slate-700">{{ ticket.message }}</p>
+          </div>
+
+          <!-- Admin Responses -->
+          {% if ticket.responses %}
+            <div class="mb-4">
+              <h3 class="font-semibold text-slate-900 mb-3">Admin Responses:</h3>
+              <div class="space-y-3">
+                {% for response in ticket.responses %}
+                  <div class="bg-green-50 rounded p-3 border-l-4 border-green-500">
+                    <p class="text-xs text-slate-600">{{ response.admin_username }} - {{ response.responded_at|date:"M d, Y H:i" }}</p>
+                    <p class="text-slate-700 mt-2">{{ response.response_text }}</p>
+                  </div>
+                {% endfor %}
+              </div>
+            </div>
+          {% endif %}
+
+          <!-- Add Response Form -->
+          {% if ticket.status != 'closed' %}
+            <form method="POST" class="mt-4 pt-4 border-t">
+              {% csrf_token %}
+              <input type="hidden" name="action" value="respond" />
+              <input type="hidden" name="subject" value="{{ ticket.subject }}" />
+              
+              <div class="mb-3">
+                <label class="block text-sm font-medium text-slate-700 mb-1">Your Response</label>
+                <textarea name="response_text" rows="3" class="w-full px-3 py-2 border rounded" required></textarea>
+              </div>
+              
+              <div class="flex gap-2">
+                <button type="submit" class="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 text-sm font-medium">
+                  Add Response
+                </button>
+                
+                <button type="button" class="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700 text-sm font-medium" onclick="closeTicket('{{ ticket.subject }}')">
+                  Close Ticket
+                </button>
+              </div>
+            </form>
+
+            <script>
+              function closeTicket(subject) {
+                if (confirm('Close this ticket?')) {
+                  const form = document.createElement('form');
+                  form.method = 'POST';
+                  form.innerHTML = `
+                    {% csrf_token %}
+                    <input type="hidden" name="action" value="close" />
+                    <input type="hidden" name="subject" value="${subject}" />
+                  `;
+                  document.body.appendChild(form);
+                  form.submit();
+                }
+              }
+            </script>
+          {% else %}
+            <div class="bg-gray-50 rounded p-4 text-center">
+              <p class="text-slate-600 text-sm">This ticket is closed.</p>
+            </div>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+
+    <!-- Pagination -->
+    {% if page_obj.has_other_pages %}
+      <div class="mt-8 flex justify-center gap-4">
+        {% if page_obj.has_previous %}
+          <a href="?status={{ status_filter }}&page=1" class="px-4 py-2 bg-gray-200 text-gray-800 rounded hover:bg-gray-300">First</a>
+          <a href="?status={{ status_filter }}&page={{ page_obj.previous_page_number }}" class="px-4 py-2 bg-gray-200 text-gray-800 rounded hover:bg-gray-300">Previous</a>
+        {% endif %}
+
+        <span class="px-4 py-2 text-slate-700">
+          Page <strong>{{ page_obj.number }}</strong> of <strong>{{ page_obj.paginator.num_pages }}</strong>
+        </span>
+
+        {% if page_obj.has_next %}
+          <a href="?status={{ status_filter }}&page={{ page_obj.next_page_number }}" class="px-4 py-2 bg-gray-200 text-gray-800 rounded hover:bg-gray-300">Next</a>
+          <a href="?status={{ status_filter }}&page={{ page_obj.paginator.num_pages }}" class="px-4 py-2 bg-gray-200 text-gray-800 rounded hover:bg-gray-300">Last</a>
+        {% endif %}
+      </div>
+    {% endif %}
+  {% else %}
+    <div class="bg-slate-50 border border-slate-200 rounded p-6 text-center">
+      <p class="text-slate-700 mb-2">No {{ status_filter }} tickets.</p>
+      <p class="text-slate-600 text-sm">All support requests are handled!</p>
+    </div>
+  {% endif %}
+</div>
+
+{% endblock %}

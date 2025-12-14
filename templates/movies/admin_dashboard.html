@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+
+{% block title %}Admin Dashboard{% endblock %}
+
+{% block content %}
+<div class="mt-6">
+  <h1 class="text-3xl font-bold mb-2">Admin Dashboard</h1>
+  <p class="text-slate-600 mb-6">Manage movies, support tickets, and send announcements to users.</p>
+
+  <!-- Statistics -->
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+    <div class="bg-white border rounded p-6">
+      <div class="text-slate-500 text-sm font-medium">Total Movies</div>
+      <div class="text-4xl font-bold text-slate-900 mt-2">{{ movies_count }}</div>
+    </div>
+    <div class="bg-white border rounded p-6">
+      <div class="text-slate-500 text-sm font-medium">Active Users</div>
+      <div class="text-4xl font-bold text-slate-900 mt-2">{{ users_count }}</div>
+    </div>
+    <div class="bg-white border rounded p-6">
+      <div class="text-slate-500 text-sm font-medium">Open Support Tickets</div>
+      <div class="text-4xl font-bold text-red-600 mt-2">{{ open_tickets }}</div>
+    </div>
+  </div>
+
+  <!-- Admin Actions -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <!-- Movie Management -->
+    <div class="bg-white border rounded p-6">
+      <h2 class="text-xl font-semibold mb-4 flex items-center">
+        <span class="w-8 h-8 bg-indigo-100 text-indigo-600 rounded flex items-center justify-center mr-2">🎬</span>
+        Movie Management
+      </h2>
+      <p class="text-slate-600 text-sm mb-4">Add, edit, or remove movies from the database.</p>
+      <a href="{% url 'movies:manage_movies' %}" class="inline-block px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700">
+        Manage Movies
+      </a>
+    </div>
+
+    <!-- Support Tickets -->
+    <div class="bg-white border rounded p-6">
+      <h2 class="text-xl font-semibold mb-4 flex items-center">
+        <span class="w-8 h-8 bg-yellow-100 text-yellow-600 rounded flex items-center justify-center mr-2">📧</span>
+        Support Tickets
+      </h2>
+      <p class="text-slate-600 text-sm mb-4">Review and respond to user support requests.</p>
+      <a href="{% url 'movies:manage_tickets' %}" class="inline-block px-4 py-2 bg-yellow-600 text-white rounded hover:bg-yellow-700">
+        View Tickets
+      </a>
+    </div>
+
+    <!-- Send Announcements -->
+    <div class="bg-white border rounded p-6">
+      <h2 class="text-xl font-semibold mb-4 flex items-center">
+        <span class="w-8 h-8 bg-green-100 text-green-600 rounded flex items-center justify-center mr-2">📢</span>
+        Send Announcements
+      </h2>
+      <p class="text-slate-600 text-sm mb-4">Send notifications to all users instantly.</p>
+      <a href="{% url 'movies:send_announcement' %}" class="inline-block px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700">
+        Send Announcement
+      </a>
+    </div>
+
+    <!-- Users List -->
+    <div class="bg-white border rounded p-6">
+      <h2 class="text-xl font-semibold mb-4 flex items-center">
+        <span class="w-8 h-8 bg-purple-100 text-purple-600 rounded flex items-center justify-center mr-2">👥</span>
+        System Info
+      </h2>
+      <p class="text-slate-600 text-sm mb-4">View system information and statistics.</p>
+      <button class="inline-block px-4 py-2 bg-purple-600 text-white rounded hover:bg-purple-700">
+        View System Info
+      </button>
+    </div>
+  </div>
+
+  <!-- Quick Links -->
+  <div class="mt-8 bg-blue-50 border border-blue-200 rounded p-6">
+    <h3 class="font-semibold text-blue-900 mb-3">Quick Links</h3>
+    <div class="flex flex-wrap gap-3">
+      <a href="{% url 'movies:home' %}" class="text-blue-600 hover:underline">Home</a>
+      <a href="{% url 'movies:movie_list' %}" class="text-blue-600 hover:underline">Browse Movies</a>
+      <a href="{% url 'accounts:profile' %}" class="text-blue-600 hover:underline">My Profile</a>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

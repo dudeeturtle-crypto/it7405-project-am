@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block title %}Profile - Movie Reviews{% endblock %}
+
+{% block content %}
+<div class="max-w-4xl mx-auto px-4 py-8">
+  <!-- Profile Header -->
+  <div class="bg-white bg-opacity-70 backdrop-blur-sm border border-white border-opacity-30 rounded-lg shadow-lg p-8 mb-8">
+    <div class="flex items-center justify-between">
+      <div>
+        <h1 class="text-3xl font-bold text-slate-900">{{ user.username }}</h1>
+        <p class="text-slate-600 mt-2">{{ user.email }}</p>
+        <p class="text-sm text-slate-500 mt-2">Member since {{ user.created_at|date:"M d, Y" }}</p>
+      </div>
+      <div class="text-right">
+        <a href="{% url 'accounts:logout' %}" class="inline-block px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700">
+          Logout
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Profile Info -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <!-- Account Details -->
+    <div class="bg-white bg-opacity-70 backdrop-blur-sm border border-white border-opacity-30 rounded-lg shadow-lg p-6">
+      <h2 class="text-xl font-semibold text-slate-900 mb-4">Account Details</h2>
+      <div class="space-y-4">
+        <div>
+          <label class="block text-sm font-medium text-slate-700">Username</label>
+          <p class="text-slate-900 mt-1">{{ user.username }}</p>
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-slate-700">Email</label>
+          <p class="text-slate-900 mt-1">{{ user.email }}</p>
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-slate-700">Status</label>
+          <p class="text-slate-900 mt-1">
+            {% if user.is_active %}
+              <span class="text-green-600 font-medium">Active</span>
+            {% else %}
+              <span class="text-red-600 font-medium">Inactive</span>
+            {% endif %}
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Account Actions -->
+    <div class="bg-white bg-opacity-70 backdrop-blur-sm border border-white border-opacity-30 rounded-lg shadow-lg p-6">
+      <h2 class="text-xl font-semibold text-slate-900 mb-4">Actions</h2>
+      <div class="space-y-3">
+        <a href="{% url 'movies:home' %}" class="block px-4 py-2 bg-indigo-600 text-white rounded-lg text-center hover:bg-indigo-700">
+          Browse Movies
+        </a>
+        <a href="{% url 'movies:movie_list' %}" class="block px-4 py-2 bg-slate-600 text-white rounded-lg text-center hover:bg-slate-700">
+          My Reviews
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,92 @@
+:root {
+  --primary: #4f46e5;
+  --accent: #38bdf8;
+  --muted: #94a3b8;
+}
+
+body {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  color: #1f2937;
+  font-family: 'Inter', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Poppins', sans-serif;
+  color: #111827;
+}
+
+/* Movie card styles - transparent glass effect */
+.movie-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.movie-card:hover {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.movie-card img,
+.card-img-top {
+  object-fit: cover;
+  height: 300px;
+}
+
+.card-title {
+  color: #111827;
+  font-weight: 600;
+}
+
+.btn-primary {
+  background: var(--primary);
+  border: none;
+  font-weight: 500;
+}
+
+.btn-primary:hover {
+  background: #4338ca;
+}
+
+.btn-outline-primary {
+  color: var(--primary);
+  border: 1.5px solid var(--primary);
+}
+
+.btn-outline-primary:hover {
+  background: rgba(79, 70, 229, 0.05);
+}
+
+.rating {
+  color: #f59e0b;
+  font-weight: 700;
+}
+
+.movie-meta {
+  color: #6b7280;
+  font-size: 0.875rem;
+}
+
+/* Text readability */
+p {
+  line-height: 1.6;
+  color: #374151;
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* responsive tweaks */
+@media (max-width: 576px) {
+  .movie-card img {
+    height: 220px;
+  }
+}

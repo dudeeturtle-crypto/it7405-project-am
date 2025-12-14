@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}Mongo Demo{% endblock %}
+
+{% block content %}
+  <div class="mb-6">
+    <h1 class="text-2xl font-semibold">Mongo Demo</h1>
+    <p class="text-slate-500">A quick preview of reviews stored in MongoDB</p>
+  </div>
+  {% if mongo_reviews %}
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      {% for r in mongo_reviews %}
+        <div class="border rounded p-4">
+          <div class="flex items-start gap-4">
+            <div class="flex-0 w-20 h-28 bg-slate-100 rounded overflow-hidden">
+              {% if r.photo_url %}
+                <img src="{{ r.photo_url }}" class="w-full h-full object-cover" alt="{{ r.title }}">
+              {% endif %}
+            </div>
+            <div class="flex-1">
+              <h3 class="font-medium">{{ r.title }}</h3>
+              <div class="text-sm text-slate-600">Rating: ⭐ {{ r.rating }}</div>
+              <p class="text-slate-700 mt-2">{{ r.body }}</p>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  {% else %}
+    <p class="text-slate-500">No Mongo reviews available.</p>
+  {% endif %}
+{% endblock %}

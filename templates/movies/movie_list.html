@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block title %}Movies - Movie Reviews{% endblock %}
+
+{% block content %}
+  <div class="flex items-center justify-between mb-6">
+    <h1 class="text-2xl font-semibold">Movies</h1>
+    <form method="get" class="flex space-x-2">
+      <input name="q" placeholder="Search by title..." value="{{ request.GET.q }}" class="px-3 py-2 border rounded" />
+      <select name="sort" class="px-3 py-2 border rounded">
+        <option value="">Sort</option>
+        <option value="newest">Newest</option>
+        <option value="highest">Highest Rated</option>
+        <option value="most_reviewed">Most Reviewed</option>
+      </select>
+      <button type="submit" class="px-3 py-2 bg-indigo-600 text-white rounded">Go</button>
+    </form>
+  </div>
+
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+    {% for movie in page_obj.object_list %}
+      <div class="bg-white bg-opacity-70 backdrop-blur-sm border border-white border-opacity-30 rounded-lg shadow hover:shadow-lg transition-shadow overflow-hidden flex flex-col">
+        {% if movie.photo_url %}
+          <img src="{{ movie.photo_url }}" class="w-full h-44 object-cover" alt="{{ movie.title }}">
+        {% elif movie.poster_url %}
+          <img src="{{ movie.poster_url }}" class="w-full h-44 object-cover" alt="{{ movie.title }}">
+        {% else %}
+          <img src="https://via.placeholder.com/300x400?text=No+Image" class="w-full h-44 object-cover" alt="No image">
+        {% endif %}
+        <div class="p-3 flex-1 flex flex-col">
+          <h3 class="font-semibold text-sm mb-1 text-slate-900">{{ movie.title }}</h3>
+          <div class="text-xs text-slate-700">{{ movie.year }} • {{ movie.duration_minutes }}</div>
+          <div class="mt-auto">
+            <div class="text-sm font-medium text-slate-800">⭐ {{ movie.avg_rating|default:'0.0' }}</div>
+            <a href="{% url 'movies:movie_detail' movie.slug %}" class="mt-2 inline-block w-full text-center px-3 py-2 bg-indigo-600 text-white rounded-lg font-medium hover:bg-indigo-700">Details</a>
+          </div>
+        </div>
+      </div>
+    {% empty %}
+      <p class="text-slate-700">No movies found.</p>
+    {% endfor %}
+  </div>
+
+  <div class="flex items-center justify-between mt-6">
+    <div></div>
+    <div class="text-sm text-slate-600">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</div>
+    <div class="space-x-2">
+      {% if page_obj.has_previous %}
+        <a href="?page={{ page_obj.previous_page_number }}" class="px-3 py-1 border rounded">Previous</a>
+      {% endif %}
+      {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}" class="px-3 py-1 border rounded">Next</a>
+      {% endif %}
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,10 @@
+[{
+  "_id": {
+    "$oid": "693e0e308ef50e64699c9cc6"
+  },
+  "username": "a7meddii._",
+  "movie_slug": "the-dark-knight",
+  "movie_title": "The Dark Knight",
+  "added_at": "2025-12-14T01:09:04.149215+00:00",
+  "is_favorite": true
+}]

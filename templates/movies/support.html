@@ -1,0 +1,125 @@
+{% extends 'base.html' %}
+
+{% block title %}Support - Report Issues{% endblock %}
+
+{% block content %}
+<div class="mt-6">
+  <h1 class="text-3xl font-bold mb-2">Support Center</h1>
+  <p class="text-slate-600 mb-6">Submit your issues or questions, and our team will get back to you shortly.</p>
+
+  <!-- Submit New Ticket Form -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+    <div class="md:col-span-1">
+      <div class="bg-white border rounded p-6">
+        <h2 class="text-xl font-semibold mb-4">Submit New Issue</h2>
+        
+        <form method="POST" class="space-y-4">
+          {% csrf_token %}
+          <div>
+            <label class="block text-sm font-medium text-slate-700 mb-1">Email</label>
+            <input type="email" name="email" class="w-full px-3 py-2 border rounded" required placeholder="your@email.com" />
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-slate-700 mb-1">Subject</label>
+            <input type="text" name="subject" class="w-full px-3 py-2 border rounded" required placeholder="Brief description of your issue" />
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-slate-700 mb-1">Message</label>
+            <textarea name="message" rows="6" class="w-full px-3 py-2 border rounded" required placeholder="Describe your issue in detail..."></textarea>
+          </div>
+          <button type="submit" class="w-full px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700 font-medium">
+            Submit Ticket
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- FAQ Section -->
+    <div class="md:col-span-1">
+      <div class="bg-blue-50 border border-blue-200 rounded p-6">
+        <h2 class="text-xl font-semibold mb-4 text-blue-900">FAQ</h2>
+        <div class="space-y-4">
+          <div>
+            <h3 class="font-medium text-slate-900">How do I add a movie to my watchlist?</h3>
+            <p class="text-sm text-slate-600 mt-1">Visit any movie page and click the "Add to Watchlist" button.</p>
+          </div>
+          <div>
+            <h3 class="font-medium text-slate-900">How do I get notifications?</h3>
+            <p class="text-sm text-slate-600 mt-1">When someone posts a highly-rated review (4.5+ stars) for a movie in your watchlist, you'll get notified.</p>
+          </div>
+          <div>
+            <h3 class="font-medium text-slate-900">How long does it take to get a response?</h3>
+            <p class="text-sm text-slate-600 mt-1">We typically respond to tickets within 24-48 hours.</p>
+          </div>
+          <div>
+            <h3 class="font-medium text-slate-900">Can I delete my account?</h3>
+            <p class="text-sm text-slate-600 mt-1">Contact support with your request and we'll help you.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Your Tickets -->
+  <div>
+    <h2 class="text-2xl font-semibold mb-4">Your Support Tickets</h2>
+    
+    {% if page_obj.paginator.count > 0 %}
+      <div class="space-y-4">
+        {% for ticket in page_obj %}
+          <div class="border rounded p-4 hover:shadow-md transition">
+            <div class="flex items-start justify-between mb-2">
+              <div>
+                <h3 class="font-semibold text-slate-900">{{ ticket.subject }}</h3>
+                <p class="text-xs text-slate-500">Submitted: {{ ticket.created_at|date:"M d, Y H:i" }}</p>
+              </div>
+              <span class="px-3 py-1 rounded text-sm font-medium {% if ticket.status == 'open' %}bg-yellow-100 text-yellow-800{% elif ticket.status == 'in_progress' %}bg-blue-100 text-blue-800{% elif ticket.status == 'resolved' %}bg-green-100 text-green-800{% else %}bg-gray-100 text-gray-800{% endif %}">
+                {{ ticket.status|upper }}
+              </span>
+            </div>
+            <p class="text-slate-700 mb-3">{{ ticket.message|truncatewords:30 }}</p>
+            
+            <!-- Admin Responses -->
+            {% if ticket.responses %}
+              <div class="bg-slate-50 rounded p-3 mt-3">
+                <p class="text-sm font-medium text-slate-900 mb-2">Admin Responses:</p>
+                {% for response in ticket.responses %}
+                  <div class="mb-2 pb-2 border-b last:border-b-0">
+                    <p class="text-xs text-slate-500">{{ response.admin_username }} - {{ response.responded_at|date:"M d, Y H:i" }}</p>
+                    <p class="text-sm text-slate-700 mt-1">{{ response.response_text }}</p>
+                  </div>
+                {% endfor %}
+              </div>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+
+      <!-- Pagination -->
+      {% if page_obj.has_other_pages %}
+        <div class="mt-8 flex justify-center gap-4">
+          {% if page_obj.has_previous %}
+            <a href="?page=1" class="px-4 py-2 bg-gray-200 text-gray-800 rounded hover:bg-gray-300">First</a>
+            <a href="?page={{ page_obj.previous_page_number }}" class="px-4 py-2 bg-gray-200 text-gray-800 rounded hover:bg-gray-300">Previous</a>
+          {% endif %}
+
+          <span class="px-4 py-2 text-slate-700">
+            Page <strong>{{ page_obj.number }}</strong> of <strong>{{ page_obj.paginator.num_pages }}</strong>
+          </span>
+
+          {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}" class="px-4 py-2 bg-gray-200 text-gray-800 rounded hover:bg-gray-300">Next</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}" class="px-4 py-2 bg-gray-200 text-gray-800 rounded hover:bg-gray-300">Last</a>
+          {% endif %}
+        </div>
+      {% endif %}
+    {% else %}
+      <div class="bg-slate-50 border border-slate-200 rounded p-6 text-center">
+        <p class="text-slate-700 mb-4">You haven't submitted any support tickets yet.</p>
+        <p class="text-slate-600">If you encounter any issues, feel free to submit a ticket above.</p>
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+{% endblock %}

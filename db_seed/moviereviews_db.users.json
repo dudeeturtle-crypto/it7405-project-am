@@ -1,0 +1,100 @@
+[{
+  "_id": {
+    "$oid": "693163ce7d6da0f7c022a36e"
+  },
+  "username": "testuser",
+  "email": "test@example.com",
+  "password_hash": "3e7ade8fc8ddc4224ffbbc9e8f07ece1b92db694a85d8980d64607e11f995ecf",
+  "created_at": {
+    "$date": "2025-12-04T10:34:54.754Z"
+  },
+  "updated_at": {
+    "$date": "2025-12-04T10:34:54.754Z"
+  },
+  "is_active": true
+},
+{
+  "_id": {
+    "$oid": "69316556b23ef18ecf178380"
+  },
+  "username": "newuser",
+  "email": "newuser@example.com",
+  "password_hash": "7753c6ddb125a5515afe01ea0cb32ca29d93c5c28ab73f62a60e37ffed9fe5b4",
+  "created_at": {
+    "$date": "2025-12-04T10:41:26.451Z"
+  },
+  "updated_at": {
+    "$date": "2025-12-04T10:41:26.451Z"
+  },
+  "is_active": true
+},
+{
+  "_id": {
+    "$oid": "6931655dfc4c2df4d44dab18"
+  },
+  "username": "newuser2",
+  "email": "newuser2@example.com",
+  "password_hash": "7753c6ddb125a5515afe01ea0cb32ca29d93c5c28ab73f62a60e37ffed9fe5b4",
+  "created_at": {
+    "$date": "2025-12-04T10:41:33.673Z"
+  },
+  "updated_at": {
+    "$date": "2025-12-04T10:41:33.673Z"
+  },
+  "is_active": true
+},
+{
+  "_id": {
+    "$oid": "6931678d6873c7c91092c7e7"
+  },
+  "username": "a7meddii._",
+  "email": "dudeeturtle@gmail.com",
+  "password_hash": "da0d3a96ab3f1dd947c451257dab1ce07d23dcc34359cf74bb23a74ca876e5dd",
+  "created_at": {
+    "$date": "2025-12-04T10:50:53.601Z"
+  },
+  "updated_at": {
+    "$date": "2025-12-04T10:50:53.601Z"
+  },
+  "is_active": true
+},
+{
+  "_id": {
+    "$oid": "6932014e1eb00a53dd9a9941"
+  },
+  "username": "e2etest2",
+  "email": "e2e2@test.com",
+  "password_hash": "0dc03b3e7222ba1fdf42faad0d0aa454f01346b36daa9876316118b330934c3a",
+  "created_at": {
+    "$date": "2025-12-04T21:46:54.039Z"
+  },
+  "updated_at": {
+    "$date": "2025-12-04T21:46:54.039Z"
+  },
+  "is_active": true
+},
+{
+  "_id": {
+    "$oid": "69393aa908d65e2141e616a9"
+  },
+  "username": "khalifa",
+  "email": "khalifa@gmail.com",
+  "password_hash": "15b6b50312f187a13033571897710c1cdb41fdd94bb9af64d0d5802af21cd382",
+  "created_at": {
+    "$date": "2025-12-10T09:17:29.615Z"
+  },
+  "updated_at": {
+    "$date": "2025-12-10T09:17:29.615Z"
+  },
+  "is_active": true
+},
+{
+  "_id": {
+    "$oid": "693951ead02b089475d49d68"
+  },
+  "username": "admin",
+  "email": "admin@moviereviews.com",
+  "password": "admin123",
+  "is_admin": true,
+  "created_at": "2025-12-10T10:56:42.184250+00:00"
+}]

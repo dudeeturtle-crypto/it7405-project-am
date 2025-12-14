@@ -1,0 +1,77 @@
+[{
+  "_id": {
+    "$oid": "693944aa470c1f7d33c42b66"
+  },
+  "username": "testuser",
+  "movie_slug": "gladiator",
+  "first_viewed_at": "2025-12-10T10:00:10.075231+00:00",
+  "last_viewed_at": "2025-12-10T10:10:59.398760+00:00",
+  "movie_title": "Gladiator",
+  "view_count": 2
+},
+{
+  "_id": {
+    "$oid": "69394c18470c1f7d33c42b67"
+  },
+  "movie_slug": "example-movie",
+  "username": "a7meddii._",
+  "first_viewed_at": "2025-12-10T10:31:52.061422+00:00",
+  "last_viewed_at": "2025-12-14T01:09:15.763196+00:00",
+  "movie_title": "Rush Hour",
+  "view_count": 11
+},
+{
+  "_id": {
+    "$oid": "69394c5a470c1f7d33c42b68"
+  },
+  "movie_slug": "the-shawshank-redemption",
+  "username": "a7meddii._",
+  "first_viewed_at": "2025-12-10T10:32:58.451635+00:00",
+  "last_viewed_at": "2025-12-12T20:42:22.844406+00:00",
+  "movie_title": "The Shawshank Redemption",
+  "view_count": 5
+},
+{
+  "_id": {
+    "$oid": "69399ab6470c1f7d33c42b69"
+  },
+  "movie_slug": "pulp-fiction",
+  "username": "a7meddii._",
+  "first_viewed_at": "2025-12-10T16:07:18.253276+00:00",
+  "last_viewed_at": "2025-12-14T01:09:12.725119+00:00",
+  "movie_title": "Pulp Fiction",
+  "view_count": 4
+},
+{
+  "_id": {
+    "$oid": "693c7e0e319e110dfe61762b"
+  },
+  "movie_slug": "the-lord-of-the-rings-the-fellowship-of-the-ring",
+  "username": "a7meddii._",
+  "first_viewed_at": "2025-12-12T20:41:50.694668+00:00",
+  "last_viewed_at": "2025-12-14T01:09:09.836226+00:00",
+  "movie_title": "The Lord of the Rings: The Fellowship of the Ring",
+  "view_count": 2
+},
+{
+  "_id": {
+    "$oid": "693e0c33319e110dfe61762d"
+  },
+  "movie_slug": "another-movie",
+  "username": "a7meddii._",
+  "first_viewed_at": "2025-12-14T01:00:35.492536+00:00",
+  "last_viewed_at": "2025-12-14T12:32:00.905358+00:00",
+  "movie_title": "Another",
+  "view_count": 2
+},
+{
+  "_id": {
+    "$oid": "693e0c37319e110dfe61762e"
+  },
+  "username": "a7meddii._",
+  "movie_slug": "the-dark-knight",
+  "first_viewed_at": "2025-12-14T01:00:39.191436+00:00",
+  "last_viewed_at": "2025-12-14T12:31:57.235954+00:00",
+  "movie_title": "The Dark Knight",
+  "view_count": 6
+}]

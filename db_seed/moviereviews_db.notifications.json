@@ -1,0 +1,24 @@
+[{
+  "_id": {
+    "$oid": "693956d3e9e0432a80d67bc3"
+  },
+  "username": "a7meddii._",
+  "title": "Support Response: movies issue again",
+  "message": "wait longer",
+  "notification_type": "support_response",
+  "ticket_subject": "movies issue again",
+  "created_at": "2025-12-10T11:17:39.819447+00:00",
+  "is_read": false
+},
+{
+  "_id": {
+    "$oid": "693e143e8ef50e64699c9d08"
+  },
+  "username": "a7meddii._",
+  "title": "Support Response: movies issue",
+  "message": "don't worry w will slove it",
+  "notification_type": "support_response",
+  "ticket_subject": "movies issue",
+  "created_at": "2025-12-14T01:34:54.942395+00:00",
+  "is_read": false
+}]

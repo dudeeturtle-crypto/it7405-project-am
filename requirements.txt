@@ -1,0 +1,10 @@
+
+# Core
+Django>=4.2
+python-dotenv>=1.0.0
+
+# Optional (for MongoDB production): djongo may be incompatible with newer Django versions.
+# We use `pymongo` directly in this project for Mongo access. Install it when needed:
+# pip install pymongo
+pymongo
+

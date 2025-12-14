@@ -1,0 +1,183 @@
+[
+
+  {
+
+    "title": "The Shawshank Redemption",
+
+    "rating": 4.3,
+
+    "description": "Andy Dufresne, a banker sentenced to life in Shawshank State Penitentiary, forms a friendship with inmate Red and finds solace and eventual redemption through acts of common decency. " ,
+
+    "photo_url": "https://image.tmdb.org/t/p/original/q6y0Go1tsGEsmtFryDOJo3dEmqu.jpg"
+
+  },
+
+  {
+
+    "title": "The Godfather",
+
+    "rating": 3.2,
+
+    "description": "The aging patriarch of the Corleone crime family transfers control of his clandestine empire to his reluctant son Michael, but betrayal and violence loom. " ,
+
+    "photo_url": "https://tse2.mm.bing.net/th/id/OIP._pV0hinK_lWXvZDOLzz8CwHaEK?cb=ucfimg2ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3"
+
+  },
+
+  {
+
+    "title": "Inception",
+
+    "rating": 4.8,
+
+    "description": "Dom Cobb, a skilled thief who steals corporate secrets through the use of dream-sharing technology, is offered a chance for redemption: plant an idea instead of stealing one. " ,
+
+    "photo_url": "https://wallpapercave.com/wp/fWnWpHj.jpg"
+
+  },
+
+  {
+
+    "title": "Pulp Fiction",
+
+    "rating": 4.9,
+
+    "description": "The lives of two mob hitmen, a boxer, a gangster’s wife, and a pair of diner bandits intertwine in four tales of violence and redemption. " ,
+
+    "photo_url": "https://tse2.mm.bing.net/th/id/OIP.8DNz6WOrrRU7R41yn6cIcgHaLH?cb=ucfimg2ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3"
+
+  },
+
+  {
+
+    "title": "The Dark Knight",
+
+    "rating": 5,
+
+    "description": "When the Joker emerges in Gotham City, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice. " ,
+
+    "photo_url": "https://m.media-amazon.com/images/I/91KkWf50SoL._AC_SL1500_.jpg"
+
+  },
+
+  {
+
+    "title": "Forrest Gump",
+
+    "rating": 3.8,
+
+    "description": "The presidencies of Kennedy and Johnson, the Vietnam War, and other events unfold through the perspective of Forrest Gump, a man with a low IQ but good intentions. " ,
+
+    "photo_url": "https://tse4.mm.bing.net/th/id/OIP.B1GfnOoTppaZgPdTPzh0pwHaLG?cb=ucfimg2ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3"
+
+  },
+
+  {
+
+    "title": "Fight Club",
+
+    "rating": 4.8,
+
+    "description": "An insomniac office worker and a devil‑may‑care soap maker form an underground fight club that evolves into something much, much more. " ,
+
+    "photo_url": "https://tse2.mm.bing.net/th/id/OIP.q9fgNTN-dv9dLVr4F4yyvwHaKe?cb=ucfimg2ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3"
+
+  },
+
+  {
+
+    "title": "Schindler's List",
+
+    "rating": 4.9,
+
+    "description": "In German-occupied Poland during World War II, businessman Oskar Schindler gradually becomes concerned for his Jewish workforce after witnessing their persecution. " ,
+
+    "photo_url": "https://image.tmdb.org/t/p/original/t7xhP8SQTVanzecvn1oQRVWCXTI.jpg"
+
+  },
+
+  {
+
+    "title": "The Lord of the Rings: The Fellowship of the Ring",
+
+    "rating": 4.8,
+
+    "description": "A meek Hobbit from the Shire and eight companions set out on a journey to destroy the One Ring and save Middle-earth from the Dark Lord Sauron. " ,
+
+    "photo_url": "https://th.bing.com/th/id/R.84e406df9c9292eb20dea838d27d86e5?rik=agTpyv%2blL5K%2fOA&pid=ImgRaw&r=0"
+
+  },
+
+  {
+
+    "title": "Star Wars: Episode IV – A New Hope",
+
+    "rating": 4.6,
+
+    "description": "Luke Skywalker joins forces with a Jedi Knight, a cocky pilot, a Wookiee, and two droids to save the galaxy from the Empire’s world‑destroying battle station. " ,
+
+    "photo_url": "https://th.bing.com/th/id/R.43d988b10caebdbdf545842255b346a2?rik=7ldfu7rEX0%2fcbQ&pid=ImgRaw&r=0"
+
+  },
+
+  {
+
+    "title": "The Matrix",
+
+    "rating": 3.7,
+
+    "description": "A computer hacker learns about the true nature of his reality and his role in the war against its controllers. " ,
+
+    "photo_url": "https://th.bing.com/th/id/R.d970a62a9acac1f23514d598ad7bd7cf?rik=G6TSSpNyruMDnw&riu=http%3a%2f%2fwww.impawards.com%2f1999%2fposters%2fmatrix_ver2_xlg.jpg&ehk=mGMtdAnxjXTVfEzlQUIvaD8%2fKPG8IxOllWV7FlkCEmw%3d&risl=&pid=ImgRaw&r=0"
+
+  },
+
+  {
+
+    "title": "Gladiator",
+
+    "rating": 4.7,
+
+    "description": "A former Roman General sets out to exact vengeance against the corrupt emperor who murdered his family and sent him into slavery. " ,
+
+    "photo_url": "https://th.bing.com/th/id/R.c60f1eab682a86321b0762a57fc53deb?rik=D%2bVMfqbFyp9Ehg&pid=ImgRaw&r=0"
+
+  },
+
+  {
+
+    "title": "Interstellar",
+
+    "rating": 4.6,
+
+    "description": "A team of explorers travel through a wormhole in space in an attempt to ensure humanity’s survival. " ,
+
+    "photo_url": "https://mir-s3-cdn-cf.behance.net/project_modules/hd/297acd129204217.616629e21fe76.png"
+
+  },
+
+  {
+
+    "title": "The Lion King",
+
+    "rating": 4.5,
+
+    "description": "Lion prince Simba and his father are targeted by his bitter uncle, who wants to ascend the throne himself. " ,
+
+    "photo_url": "https://tse2.mm.bing.net/th/id/OIP.-utPw87WE0dxRBlZ9D-ofwHaLH?cb=ucfimg2ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3"
+
+  },
+
+  {
+
+    "title": "Titanic",
+
+    "rating": 4.6,
+
+    "description": "A seventeen‑year‑old aristocrat falls in love with a kind but poor artist aboard the luxurious, ill‑fated R.M.S. Titanic. " ,
+
+    "photo_url": "https://www.themoviedb.org/t/p/original/tr5y5H4qOlqCGbZKaT9Q97cscVj.jpg"
+
+  }
+
+]

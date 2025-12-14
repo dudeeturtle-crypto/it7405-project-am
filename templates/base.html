@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    {% load static %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Movie Reviews{% endblock %}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet">
+    <style>
+      * { font-family: 'Inter', 'Poppins', sans-serif; }
+      body { padding-top: 72px; background: #f8f9fa; }
+      h1, h2, h3, h4, h5, h6 { font-family: 'Poppins', sans-serif; font-weight: 600; }
+    </style>
+    {% block extra_head %}{% endblock %}
+  </head>
+  <body>
+    <nav class="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur border-b z-40">
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="flex items-center justify-between h-16">
+          <div class="flex items-center space-x-4">
+            <a href="/" class="text-2xl font-semibold text-slate-800">MovieReviews</a>
+            <a href="/" class="text-sm text-slate-600 hover:text-slate-900">Home</a>
+            <a href="/movies/" class="text-sm text-slate-600 hover:text-slate-900">Movies</a>
+            <a href="/watchlist/" class="text-sm text-slate-600 hover:text-slate-900">My Watchlist</a>
+            <a href="/notifications/" class="text-sm text-slate-600 hover:text-slate-900 relative">
+              Notifications
+              {% if unread_notifications_count > 0 %}
+                <span class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">{{ unread_notifications_count }}</span>
+              {% endif %}
+            </a>
+            <a href="{% url 'movies:support' %}" class="text-sm text-slate-600 hover:text-slate-900">Support</a>
+          </div>
+          <div class="flex items-center space-x-3">
+            {% if mongo_is_authenticated %}
+              <span class="text-sm text-slate-700">{{ mongo_user.username }}</span>
+              <a href="{% url 'accounts:profile' %}" class="text-sm text-slate-600 hover:text-slate-900">Profile</a>
+              {% if is_admin %}
+                <a href="{% url 'movies:admin_dashboard' %}" class="text-sm font-medium text-red-600 hover:text-red-700">Admin</a>
+              {% endif %}
+              <a href="{% url 'accounts:logout' %}" class="text-sm text-slate-600 hover:text-slate-900">Logout</a>
+            {% else %}
+              <a href="{% url 'accounts:login' %}" class="text-sm text-slate-600 hover:text-slate-900">Login</a>
+              <a href="{% url 'accounts:signup' %}" class="text-sm font-medium text-indigo-600 hover:text-indigo-700">Sign Up</a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="max-w-6xl mx-auto px-4 py-8">
+      {% if messages %}
+        {% for message in messages %}
+          {% if 'success' in message.tags %}
+            <div class="mb-4 p-3 rounded border bg-green-50 border-green-200 text-green-800">
+          {% else %}
+            <div class="mb-4 p-3 rounded border bg-yellow-50 border-yellow-200 text-yellow-800">
+          {% endif %}
+              {{ message }}
+            </div>
+        {% endfor %}
+      {% endif %}
+
+      {% block content %}{% endblock %}
+    </div>
+    {% block extra_js %}{% endblock %}
+  </body>
+</html>

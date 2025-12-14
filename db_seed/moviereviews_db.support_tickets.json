@@ -1,0 +1,53 @@
+[{
+  "_id": {
+    "$oid": "693954eef0e02b029c88dc7b"
+  },
+  "username": "a7meddii._",
+  "email": "dudeeturtle@gmail.com",
+  "subject": "movies issue",
+  "message": "the movies are not loading",
+  "created_at": "2025-12-10T11:09:34.217468+00:00",
+  "status": "closed",
+  "responses": [
+    {
+      "admin_username": "admin",
+      "response_text": "wait a bit",
+      "responded_at": "2025-12-10T11:10:26.501161+00:00"
+    },
+    {
+      "admin_username": "admin",
+      "response_text": "don't worry w will slove it",
+      "responded_at": "2025-12-14T01:34:54.929178+00:00"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "693956a3e9e0432a80d67bc2"
+  },
+  "username": "a7meddii._",
+  "email": "dudeeturtle@gmail.com",
+  "subject": "movies issue again",
+  "message": "not loading at allll",
+  "created_at": "2025-12-10T11:16:51.187219+00:00",
+  "status": "in_progress",
+  "responses": [
+    {
+      "admin_username": "admin",
+      "response_text": "wait longer",
+      "responded_at": "2025-12-10T11:17:39.817267+00:00"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "693e10528ef50e64699c9ce1"
+  },
+  "username": "a7meddii._",
+  "email": "dudeeturtle@gmail.com",
+  "subject": "movies issue",
+  "message": "i still i have an issue slove it.",
+  "created_at": "2025-12-14T01:18:10.335402+00:00",
+  "status": "open",
+  "responses": []
+}]
